@@ -1,0 +1,24 @@
+<th:block th:fragment="collection">
+
+    <div class="collection--wrap">
+        <ul class="tab" data-tab="list">
+            <li class="tab__item tab__item--active"><a href="#collection1">인기스온 도감</a></li>
+            <li class="tab__item"><a href="#collection2">겔크마로스 도감</a></li>
+            <li class="tab__item"><a href="#collection3">실렌테라 회랑 도감</a></li>
+        </ul>
+
+        <!--/* 탭별 컨텐츠 */-->
+        <div class="tab-contents">
+            <div id="collection1" data-tab="con" class="tab__con tab__con--active">
+                탭1
+            </div>
+            <div id="collection2" data-tab="con" class="tab__con">
+                탭2
+            </div>
+            <div id="collection3" data-tab="con" class="tab__con">
+                탭3
+            </div>
+        </div>
+    </div>
+
+</th:block>

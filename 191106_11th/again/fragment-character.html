@@ -1,0 +1,58 @@
+<th:block th:fragment="character">
+
+    <div class="p-event--wrap">
+
+        <!--/* 로그인 - class="p-event--on" 추가시 활성화 */-->
+        <div class="p-event p-event__login p-event--on" th:unless="${#authorization.expression('isAuthenticated()')}">
+            <p>로그인이 필요합니다.</p>
+            <a href="javascript:GNBLogin();" class="p-btn p-btn__login">로그인</a>
+        </div>
+
+        <!--/* 실명인증 - class="p-event--on" 추가시 활성화 */-->
+        <div class="p-event p-event__realname" th:if="${#authorization.expression('isAuthenticated()')}">
+            <p>본인 확인이 필요한 계정입니다. 먼저 본인 확인을 진행해 주세요</p>
+            <a th:href="|${ui['static.realname']}|" class="p-btn p-btn__realname">확인</a>
+        </div>
+
+        <!--/* 제재계정 - class="p-event--on" 추가시 활성화 */-->
+        <div class="p-event p-event__sanctions" th:if="${#authorization.expression('isAuthenticated()')}">
+            <p>제재 계정은 이벤트에 참여할 수 없습니다.</p>
+        </div>
+
+        <!--/* 이벤트종료 - class="p-event--on" 추가시 활성화 */-->
+        <div class="p-event p-event__end">
+            <p>이벤트가 종료되었습니다.</p>
+        </div>
+
+        <!--/* 캐릭터 미지정 상태 - class="p-event--on" 추가시 활성화 */-->
+        <div class="p-event p-event__select">
+            <p>이벤트에 참여할  캐릭터 선택해 주세요.</p>
+            <div class="select"><!--/*  <div class="select select--disable"> */-->
+                <a href="javascript:;" class="select__btn">---  캐릭터 선택하기 ---</a>
+                <ul class="select__list" id="selectBox">
+                    <li class="select__item"><a href="javascript:;">엘리시움 | Lv 80 | 천족 | 마도성 |  캐릭터명은열자입니다</a></li>
+                    <li class="select__item"><a href="javascript:;">엘리시움 | Lv 80 | 천족 | 수호성 |  캐릭터명은열자입니다</a></li>
+                    <li class="select__item"><a href="javascript:;">판데모니움 | Lv 80 | 천족 | 채화성 |  캐릭터명은열자입니다</a></li>
+                    <li class="select__item"><a href="javascript:;">판데모니움 | Lv 80 | 천족 | 치유성 |  캐릭터명은열자입니다</a></li>
+                    <li class="select__item"><a href="javascript:;">에레슈란타 | Lv 80 | 마족 | 마도성 |  캐릭터명은열자입니다</a></li>
+                    <li class="select__item"><a href="javascript:;">에레슈란타 | Lv 80 | 마족 | 마도성 |  캐릭터명은열자입니다</a></li>
+                    <li class="select__item"><a href="javascript:;">포에타 | Lv 80 | 천족 | 살성 |  캐릭터명은열자입니다</a></li>
+                    <li class="select__item"><a href="javascript:;">포에타 | Lv 80 | 천족 | 기갑성 |  캐릭터명은열자입니다</a></li>
+                    <li class="select__item"><a href="javascript:;">이스할겐 | Lv 80 | 천족 | 마도성 |  캐릭터명은열자입니다</a></li>
+                    <li class="select__item"><a href="javascript:;">이스할겐 | Lv 80 | 천족 | 마도성 |  캐릭터명은열자입니다</a></li>
+                    <li class="select__item"><a href="javascript:;">시엘 | Lv 80 | 천족 | 마도성 |  캐릭터명은열자입니다</a></li>
+                    <li class="select__item"><a href="javascript:;">시엘 | Lv 80 | 천족 | 마도성 |  캐릭터명은열자입니다</a></li>
+                </ul>
+            </div>
+
+            <button type="button" class="p-btn p-btn__select">확인</button>
+        </div>
+
+        <!--/* 선택한 캐릭터 관련 정보 표시 - class="p-event--on" 추가시 활성화 */-->
+        <div class="p-event p-event__character" th:if="${#authorization.expression('isAuthenticated()')}">
+            <p>이벤트 참여 캐릭터</p>
+            <p>OOOOO서버 /캐릭터명캐릭터명캐릭터명/ LvNN</p>
+        </div>
+    </div>
+    
+</th:block>

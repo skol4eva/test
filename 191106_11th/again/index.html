@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="layout/aion/layout-rwd">
+
+<head layout:fragment="head-contents">
+    <title>다시 만난 세계</title>
+</head>
+
+<th:block layout:fragment="pageinfo-basic">
+    <!--// open graph protocol -->
+    <meta property="og:title" content="다시 만난 세계">
+    <meta property="og:image" th:content="|${ui['wstatic.aion']}/event/2019/191106_11th/again/img/sns.jpg|">
+    <meta property="og:description" content="새롭게 달라진 용계에서 데바 여러분의 힘찬 발걸음을 응원합니다.">
+    <!-- open graph protocol //-->
+    
+    <!--// twitter image -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="다시 만난 세계">
+    <meta name="twitter:image" th:content="|${ui['wstatic.aion']}/event/2019/191106_11th/again/img/sns.jpg|">
+    <meta name="twitter:description" content="새롭게 달라진 용계에서 데바 여러분의 힘찬 발걸음을 응원합니다.">
+    <!-- twitter image //-->
+
+    <link rel="shortcut icon" th:href="|${ui['wstatic.default']}/common/aion.ico|" type="image/x-icon" />
+    <link rel="icon" th:href="|${ui['wstatic.default']}/common/aion.ico|" type="image/x-icon" />
+
+    <link rel="stylesheet" th:href="|${ui['wstatic.default']}/promokit/v1.1/css/promokit.css|" />
+    <link rel="stylesheet" th:href="|${ui['wstatic.aion']}/event/2019/191106_11th/css/nav-dragon.css|">
+    <link rel="stylesheet" th:href="|${ui['wstatic.aion']}/event/2019/191106_11th/css/again.css|">
+</th:block>
+
+<body>
+<div layout:fragment="content" th:with="folder=(${path.indexOf('UiDev') > -1}) ? 'UiDev/aion/2019/191106_11th' : 'aion/2019/191106_11th' ,isLogin=${#authorization.expression('isAuthenticated()')}">
+
+    <!--/* navigation */-->
+    <th:block th:replace="|${folder}/fragment-dragon-nav| :: dragon-nav"></th:block>
+
+    <div id="header" class="p-header">
+        <ul class="p-etc">
+            <li class="p-etc__list p-etc__list--event">
+                <a th:href="|${ui['event.aion']}|" class="p-etc__btn">이벤트더보기</a>
+            </li>
+        </ul>
+
+        <h1>다시 만난 세계</h1>
+        <p>새롭게 달라진 용계에서 데바 여러분의 힘찬 발걸음을 응원합니다.</p>
+        <p>이곳에서 펼쳐질 데바 여러분의 힘찬 발걸음을 응원합니다!</p>
+        <p>2019. 11. 20. (수) 정기 점검 후 ~ 2020. 1. 15 (수) 정기 점검 전</p>
+    </div>
+
+    <section class="p-sec">
+        <div class="p-sec1 p-sec1__con1">
+            <h2>새로워진 용계와의 만남</h2>
+            <p>흔들리는 수상한 수풀, 혼자만 입장 가능한 비밀의 입구, 도구를 이용한 수렵활동 등 다채로운 활동들로 가득 찬 잉기스온과 겔크마로스를 둘러보세요. </p>
+            <ul>
+                <li>두근거리는 전투, 시공의 균열</li>
+                <li>용족의 급습, 드레드기온 천공기</li>
+                <li>1대 다수의 경쟁 잉기스온/겔크마로스 투기장</li>
+                <li>도구로 잡는 몬스터, 수렵 활동</li>
+            </ul>
+        </div>
+        <div class="p-sec1 p-sec1__con2">
+            <h2>용계에서의 모험 일지</h2>
+            <p>달라진 용계에는 다양하고 재미있는 활동들이 데바 여러분을 기다리고 있습니다. 데바 여러분의 소중한 발자취를 기록으로 남겨보세요. </p>
+        </div>
+
+        <div class="p-sec1 p-sec1__con3">
+            <h2>용계에서의 모험 일지</h2>
+            <p>달라진 용계에는 다양하고 재미있는 활동들이 데바 여러분을 기다리고 있습니다. 데바 여러분의 소중한 발자취를 기록으로 남겨보세요. </p>
+
+            <h3>모험 일지 만들기</h3>
+
+            <!--/* 로그인 및 캐릭터 선택하기 */-->
+            <th:block th:replace="|${folder}/again/fragment-character| :: character"></th:block>
+
+            <ul>
+                <li>※ 용계 모험 일지 이벤트는 76레벨 이상 캐릭터로 참여할 수 있습니다.</li>
+                <li>※ 모험 일지 참여 캐릭터를 설정한 날 이후의 미션 기록이 적용됩니다.</li>
+                <li>※ 전일 오전 6시부터 금일 오전 5시 59분까지의 기록을 오전 10시에 모험 일지에 반영합니다.</li>
+            </ul>
+        </div>
+
+        <div class="p-sec1 p-sec1__con4">
+            <h3>또 다른 성장의 즐거움, 필드 명성!</h3>
+            <p>필드 활동을 통해 획득하는 경험치로 새로운 성장의 즐거움을 누려보세요!</p>
+            <h4>필드 명성 성장 기록</h4>
+
+            <div class="field">
+                <div class="level__step1">
+                    <p>필드레벨1</p>
+                    <button type="button" class="p-btn__reward">보상 받기</button>
+                </div>
+                <div class="level__step2">
+                    <p>필드레벨2</p>
+                    <button type="button" class="p-btn__reward">보상 받기</button>
+                </div>
+                <div class="level__step3">
+                    <p>필드레벨3</p>
+                    <button type="button" class="p-btn__reward">보상 받기</button>
+                </div>
+                <div class="level__step4">
+                    <p>필드레벨4</p>
+                    <button type="button" class="p-btn__reward">보상 받기</button>
+                </div>
+                <div class="level__step5">
+                    <p>필드레벨5</p>
+                    <button type="button" class="p-btn__reward">보상 받기</button>
+                </div>
+            </div>
+
+            <div class="plus-reward">
+                <p>필드 레벨 5 달성 시 추가 보상 지급</p>
+                <p>[이벤트] 데바의 성장 상자</p>
+                <p>다양한 아이템들로 구성된 상자입니다. 상자 개봉 시 구성 아이템을 모두 획득하실 수 있습니다.</p>
+                <button type="button" class="p-btn">자세히보기</button>
+                <button type="button" class="p-btn">[이벤트] 데바의 성장 상자 받기</button>
+            </div>
+
+            <p>*필드 명성 레벨은 잉기스온과 겔크마로스 지역의 레벨만 해당됩니다.</p>
+        </div>
+
+        <div class="p-sec1 p-sec1__con5">
+            <h3>부지런한 데바의 ‘일일 전투 기록’</h3>
+            <p>자바랑 NPC를 매일 도와주면 다양한 선물을 드립니다. </p>
+            <p>자바랑 NPC의 부탁: 잉기스온 또는 겔크마로스의 몬스터 30마리 처치</p>
+
+            <p>퀘스트 5회 완료 - 티탄 주화 5개</p>
+            <button type="button" class="p-btn">보상받기</button>
+
+            <p>퀘스트 10회 완료 - [이벤트] 전설 강화석 선택 상자 (7일)</p>
+            <button type="button" class="p-btn">보상받기</button>
+
+            <p>퀘스트 20회 완료 - [이벤트] 전설 강화석 선택 상자 (7일) </p>
+            <button type="button" class="p-btn">보상받기</button>
+
+            <p>퀘스트 30회 완료 - [이벤트] 궁극 강화석 선택 상자 (7일) </p>
+            <button type="button" class="p-btn">보상받기</button>
+
+            <h4>자바랑의 퀘스트 30회 달성 시 추가 보상 지급</h4>
+            <p>[이벤트] 용계의 스페셜 상자</p>
+            <p>다양한 아이템들로 구성된 상자입니다. 상자 개봉 시 구성 아이템을 모두 획득하실 수 있습니다.</p>
+            <button type="button" class="p-btn">[이벤트] 용계의 스페셜 상자 받기</button>
+        </div>
+
+        <div class="p-sec1 p-sec1__con6">
+            <h3>데바의 몬스터 도감 일지</h3>
+            <p>각 지역을 배회하는 특정 몬스터를 처치하고 도감을 완성해 보세요.</p>
+
+            <!--/* 데바의 몬스터 도감 일지 - 탭 */-->
+            <th:block th:replace="|${folder}/again/fragment-collection| :: collection"></th:block>
+
+            <p>잉기스온 정복 완료!</p>
+            <button type="button" class="p-btn">궁극의 혈투 증표 받기</button>
+        </div>
+
+        <div class="p-sec1 p-sec1__con7">
+            <h3>신비한 용계의 동물 사전</h3>
+            <p>지금까지와 다른 필드 활동을 지금 용계에서 체험해 보세요.</p>
+
+            <h4>수상한 필드! 몬스터 탐색 일지 </h4>
+            <p>잉기스온과 겔크마로스 곳곳에 숨어 있는 몬스터를 찾아내 보세요.</p>
+
+            <div class="monster">
+                <dl>
+                    <dt>
+                        봉인된 고대 마도병
+                        <div class="tooltip tooltip--pos1">
+                            <button class="tooltip__btn">봉인된 고대 마도병 자세히보기</button>
+                            <p class="tooltip__text tooltip__text--1">몬스터 안내 몬스터 안내 몬스터 안내 몬스터 안내 몬스터 안내 몬스터 안내 몬스터 안내 몬스터 안내 몬스터 안내 몬스터 안내 </p>
+                        </div>
+                    </dt>
+                    <dd>0/15</dd>
+                    <dd><button type="button" class="p-btn">보상받기</button></dd>
+                </dl>
+
+                <dl>
+                    <dt>
+                        암석 크리톤
+                        <div class="tooltip tooltip--pos2">
+                            <button class="tooltip__btn">암석 크리톤 자세히보기</button>
+                            <p class="tooltip__text tooltip__text--2">몬스터 안내 몬스터 안내 몬스터 안내 몬스터 안내 몬스터 안내 몬스터 안내 몬스터 안내 몬스터 안내 몬스터 안내 몬스터 안내 </p>
+                        </div>
+                    </dt>
+                    <dd>0/15</dd>
+                    <dd><button type="button" class="p-btn">보상받기</button></dd>
+                </dl>
+
+                <dl>
+                    <dt>
+                        얼어붙은 채집충 마도병
+                        <div class="tooltip tooltip--pos3">
+                            <button class="tooltip__btn">얼어붙은 채집충 자세히보기</button>
+                            <p class="tooltip__text tooltip__text--3">몬스터 안내 몬스터 안내 몬스터 안내 몬스터 안내 몬스터 안내 몬스터 안내 몬스터 안내 몬스터 안내 몬스터 안내 몬스터 안내 </p>
+                        </div>
+                    </dt>
+                    <dd>0/15</dd>
+                    <dd><button type="button" class="p-btn">보상받기</button></dd>
+                </dl>
+
+                <dl>
+                    <dt>
+                        덤불 뮤타
+                        <div class="tooltip tooltip--pos4">
+                            <button class="tooltip__btn">덤불 뮤타 자세히보기</button>
+                            <p class="tooltip__text tooltip__text--4">몬스터 안내 몬스터 안내 몬스터 안내 몬스터 안내 몬스터 안내 몬스터 안내 몬스터 안내 몬스터 안내 몬스터 안내 몬스터 안내 </p>
+                        </div>
+                    </dt>
+                    <dd>0/15</dd>
+                    <dd><button type="button" class="p-btn">보상받기</button></dd>
+                </dl>
+
+                <dl>
+                    <dt>
+                        파견대 정찰병
+                        <div class="tooltip tooltip--pos5">
+                            <button class="tooltip__btn">파견대 정찰병 자세히보기</button>
+                            <p class="tooltip__text tooltip__text--5">몬스터 안내 몬스터 안내 몬스터 안내 몬스터 안내 몬스터 안내 몬스터 안내 몬스터 안내 몬스터 안내 몬스터 안내 몬스터 안내 </p>
+                        </div>
+                    </dt>
+                    <dd>0/15</dd>
+                    <dd><button type="button" class="p-btn">보상받기</button></dd>
+                </dl>
+            </div>
+
+            <p>몬스터 탐색 완료 시 추가 보상 지급</p>
+            <p>[이벤트] 용계의 모험가 상자</p>
+            <p>다양한 아이템들로 구성된 상자입니다. 상자 개봉 시 구성 아이템을 모두 획득하실 수 있습니다.</p>
+            <button type="button" class="p-btn">자세히보기</button>
+            <button type="button" class="p-btn">[이벤트] 용계의 모험가 상자 보상 받기</button>
+        </div>
+
+        <div class="p-sec1 p-sec1__con8">
+            <h4>새로운 방식의 사냥! 수렵 일지</h4>
+            <p>특정 도구를 이용한 동물 수렵 활동을 통해 다양한 보상을 획득해 보세요.</p>
+
+            <div class="monster">
+                <dl>
+                    <dt>
+                        야생 라라일
+                        <div class="tooltip tooltip--pos1">
+                            <button class="tooltip__btn">야생 라라일 자세히보기</button>
+                            <p class="tooltip__text tooltip__text--1">몬스터 안내 몬스터 안내 몬스터 안내 몬스터 안내 몬스터 안내 몬스터 안내 몬스터 안내 몬스터 안내 몬스터 안내 몬스터 안내 </p>
+                        </div>
+                    </dt>
+                    <dd>0/15</dd>
+                    <dd><button type="button" class="p-btn">보상받기</button></dd>
+                </dl>
+
+                <dl>
+                    <dt>
+                        야생 밍크스
+                        <div class="tooltip tooltip--pos2">
+                            <button class="tooltip__btn">야생 밍크스 자세히보기</button>
+                            <p class="tooltip__text tooltip__text--2">몬스터 안내 몬스터 안내 몬스터 안내 몬스터 안내 몬스터 안내 몬스터 안내 몬스터 안내 몬스터 안내 몬스터 안내 몬스터 안내 </p>
+                        </div>
+                    </dt>
+                    <dd>0/15</dd>
+                    <dd><button type="button" class="p-btn">보상받기</button></dd>
+                </dl>
+
+                <dl>
+                    <dt>
+                        야생 메르디온
+                        <div class="tooltip tooltip--pos3">
+                            <button class="tooltip__btn">야생 메르디온 자세히보기</button>
+                            <p class="tooltip__text tooltip__text--3">몬스터 안내 몬스터 안내 몬스터 안내 몬스터 안내 몬스터 안내 몬스터 안내 몬스터 안내 몬스터 안내 몬스터 안내 몬스터 안내 </p>
+                        </div>
+                    </dt>
+                    <dd>0/15</dd>
+                    <dd><button type="button" class="p-btn">보상받기</button></dd>
+                </dl>
+
+                <p>몬스터 수렵 완료 시 추가 보상 지급</p>
+                <p>[이벤트] 용계의 사냥꾼 상자</p>
+                <p>다양한 아이템들로 구성된 상자입니다. 상자 개봉 시 구성 아이템을 모두 획득하실 수 있습니다.</p>
+                <button type="button" class="p-btn">[이벤트] 용계의 사냥꾼 상자 받기</button>
+            </div>
+        </div>
+
+        <div class="p-sec1 p-sec1__con9">
+            <h3>새로운 땅에서 빛나는 데바의 활약</h3>
+            <p>시공의 균열, 콜로세움 등에 참여하여 데바 여러분의 전투 실력을 뽐내 주세요!</p>
+
+            <h4>계속되는 전투를 위한 데바의 실력 향상 </h4>
+            <p>다양한 전투 환경에 참여하여 데바 여러분의 전투 실력을 보여주세요!</p>
+
+            <dl>
+                <dt>아티팩트 발동</dt>
+                <dd>0/20</dd>
+                <dd><button type="button" class="p-btn">보상받기</button></dd>
+            </dl>
+
+            <dl>
+                <dt>전투 사관 처치</dt>
+                <dd>0/10</dd>
+                <dd><button type="button" class="p-btn">보상받기</button></dd>
+            </dl>
+
+            <dl>
+                <dt>시공의 균열 이용</dt>
+                <dd>0/10</dd>
+                <dd><button type="button" class="p-btn">보상받기</button></dd>
+            </dl>
+
+            <dl>
+                <dt>투기장 입장</dt>
+                <dd>0/5</dd>
+                <dd><button type="button" class="p-btn">보상받기</button></dd>
+            </dl>
+        </div>
+
+        <div class="p-sec1 p-sec1__con10">
+            <h4>모험 일지 완성 데바님을 위한 특별한 선물</h4>
+            <p>모험 일지의 최종 보상을 모두 획득하신 데바님에게 드리는 특별한 선물! </p>
+
+            <p>더욱 재미있는 용계 활동을 위해 루그부그가 준비한 이벤트 임무!</p>
+            <button type="button">이벤트 임무 자세히 보기</button>
+
+            <p>[이벤트] 용계 정복 기념 상자</p>
+            <p>다양한 아이템들로 구성된 상자입니다. 상자 개봉 시 구성 아이템을 모두 획득하실 수 있습니다.</p>
+            <button type="button">[이벤트] 용계 정복 기념 상자받기</button>
+        </div>
+
+    </section>
+
+    <!--/* notice */-->
+    <th:block th:replace="|${folder}/again/fragment-notice| :: notice"></th:block>
+    <!--/* footer */-->
+    <th:block th:replace="|${folder}/again/fragment-footer| :: footer"></th:block>
+    <!--/* layer */-->
+    <th:block th:replace="|${folder}/again/fragment-layer| :: layer"></th:block>
+    <!--/* js */-->
+    <th:block th:replace="|${folder}/again/fragment-js| :: js"></th:block>
+
+</div>
+</body>
+</html>
